@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>Welcome to Vecta Corp.</title>
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/skeleton.css">
+	<link rel="stylesheet" href="css/layout.css">
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="js/jquery.mobilemenu.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('#responsive-menu').mobileMenu();
+			$(document).tooltip();
+			
+			  $( ".controlgroup" ).controlgroup()
+			  $( ".controlgroup-vertical" ).controlgroup({
+			      "direction": "vertical"
+			    });
+			
+			$("input[type='checkbox']").checkboxradio();
+			$('input[type="radio"]').checkboxradio();
+			$( "#companysize" ).selectmenu();
+			
+			
+			$( ".widget input[type=submit], .widget a, .widget button" ).button();
+		    $( "button, input, a" ).click( function( event ) {
+		      event.preventDefault();
+		    } );
+		    
+				$( "#dialog" ).dialog({
+				      autoOpen: false,
+				      show: {
+				        effect: "blind",
+				        duration: 1000
+				      },
+				      hide: {
+				        effect: "fade",
+				        duration: 1000
+				      }
+				    });
+				 
+				    $( "#opener" ).on( "click", function() {
+				      $( "#dialog" ).dialog( "open" );
+				    });
+				    
+				    $("#opener").on('click', function(){
+				    	$('#form').submit();
+				    })
+				    
+			 
+		});
+	</script>
+	
+	<style>
+		.ui-controlgroup-vertical {
+    		width: 420px;
+    	}
+    	.ui-controlgroup.ui-controlgroup-vertical > button.ui-button,
+    	.ui-controlgroup.ui-controlgroup-vertical > .ui-controlgroup-label {
+      		text-align: center;
+    	}
+    	.ui-controlgroup-horizontal .ui-spinner-input {
+      		width: 20px;
+    	}
+	</style>
+	
+</head>
+<body>
+	<div class="widget">
+	<main class="container">
+		<figure class="three columns">
+			<img src="images/logo.gif" class="scale-with-grid" alt="">
+		</figure>
+		
+		<nav class="thirteen columns">
+			<ul id="responsive-menu">
+				<li><a href="index.html" title="Go to the home page.">Home</a></li>
+				<li><a href="aboutus.html" title="Learn all about us!">About Us</a></li>
+				<li><a href="solutions.html" title="Vecta Corp. offers 3 solutions for prospecting, converting, and retaining customers." >Solutions</a></li>
+				<li><a href="support.html" title="We're here to help!">Support</a></li>
+				<li><a href="contactus.html" title="Let us know about questions or concerns.">Contact Us</a></li>
+			</ul>
+		</nav>
+		
+		<header class="sixteen columns">
+			<img src="images/header.gif" class="scale-with-grid" alt="">
+		</header>
+		
+		<section id="welcome" class="eleven columns">
+			<h4>Contact Us</h4>
+			<div class="controlgroup-vertical" id="form">
+				<fieldset>
+			    <legend>Contact a Sales Representative</legend>
+			    Name:
+			    <input type="text" name="name" maxlength="30" required="">
+			    Company Name:
+			    <input type="text" name="companyname" maxlength="30" required="">
+			    Phone:
+			    <input type="tel" name="phonenumber" maxlength="25" required="" pattern="\d{3}[\-]\d{3}[\-]\d{4}" title="Format: 555-555-5555">
+			    
+			    Email:
+				<input type="email" name="email" maxlength="30" required="">
+				
+			   
+                What VectaCorp products are you interested in?<br>
+                <div id="checkboxes">
+			    <label for="checkbox-1">vProspect 2.0</label>
+			    <input type="checkbox" name="checkbox-1" id="checkbox-1" class='checks'>
+			    <label for="checkbox-2">vConvert 2.0</label>
+			    <input type="checkbox" name="checkbox-2" id="checkbox-2" class='checks'>
+			    <label for="checkbox-3">vRetain 1.0</label>
+			    <input type="checkbox" name="checkbox-3" id="checkbox-3" class='checks'>
+			    </div>
+			    
+			    <br>
+			    What is your current infrastructure?<br>
+			    
+			    <label for="radio-1">Mac</label>
+			    <input type="radio" name="radio-1" id="radio-1" class='radios'>
+			    <label for="radio-2">Linux</label>
+			    <input type="radio" name="radio-1" id="radio-2" class='radios'>
+			    <label for="radio-3">Unix</label>
+			    <input type="radio" name="radio-1" id="radio-3" class='radios'>
+			    <label for="radio-4">Windows</label>
+			    <input type="radio" name="radio-1" id="radio-4" class='radios'>
+			    
+			 
+			    
+
+			    <br>
+			    How many employees do you have?
+			    <select name="companysize" id="companysize">
+                    <option>1-10</option>
+                    <option>11-100</option>
+                    <option>101-1000</option>
+                    <option>More than 1000</option>
+		        </select>
+                
+			    How did you hear about us?
+			    <select name="hearaboutus" multiple="" size="5">
+                    <option value="Magazine Ad">Magazine Ad</option>
+                    <option value="Radio Ad">Radio Ad</option>
+                    <option value="TV Ad">TV Ad</option>
+                    <option value="Word of Mouth">Word of Mouth</option>
+                    <option value="Other">Other</option>
+		        </select>
+		        
+		       
+                
+			    Questions or comments for our sales representatives?
+			    <textarea name="questions" size="30" rows="5"></textarea>
+			    <button id="opener" type="submit">Submit</button>
+		    	</fieldset>
+			</div>
+	    </section>
+		
+		 <div id="dialog" title="Thank you!">
+			<p>Thank you for your inquiry!</p>
+			</div>
+		
+		
+		<section id="testimonials" class="five columns">
+			<h4>Map</h4>
+			<p>&nbsp;</p>
+
+		</section>
+	</main>
+	</div>
+</body>
+</html>
